@@ -14,3 +14,7 @@ Desktop.ini
 
 docs/outputs/*.tmp
 docs/outputs/*.lock
+
+# Keep personal course report local only, do not publish to GitHub.
+docs/个人期末实验报告_你负责部分.md
+docs/个人期末实验报告_你负责部分.docx
