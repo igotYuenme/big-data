@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.idea/
+.vscode/
+
+Thumbs.db
+Desktop.ini
+
+*.log
+
+docs/outputs/*.tmp
+docs/outputs/*.lock

@@ -1,0 +1,6 @@
+﻿feature_profile,k,silhouette_score,feature_count
+compact_no_engagement_no_member,3,0.35416550827480525,11
+compact_no_engagement,3,0.3304560816904248,12
+compact_no_member,3,0.2907091400802571,12
+compact_ratio,3,0.2700130670397455,13
+quality_no_browse,3,0.2117293096892546,18

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>淘宝用户消费行为数据分析</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+<header class="header">
+  <h1>淘宝用户消费行为数据分析</h1>
+  <p class="meta">数据源：<strong>{{ data_source }}</strong> · 路由 <code>/data-analysis</code></p>
+  <div class="kpi">
+    <span>总 PV（日汇总）<em>{{ summary.total_pv }}</em></span>
+    <span>单日最高 UV <em>{{ summary.max_uv_day }}</em></span>
+    {% if summary.best_kmeans_k is defined %}
+    <span>最佳 K 值 <em>{{ summary.best_kmeans_k }}</em></span>
+    {% endif %}
+    {% if summary.best_kmeans_silhouette is defined %}
+    <span>轮廓系数 <em>{{ summary.best_kmeans_silhouette }}</em></span>
+    {% endif %}
+  </div>
+</header>
+
+<section class="conclusions">
+  <h2>分析结论（业务解读）</h2>
+  <ul>
+    {% for key, value in conclusions.items() %}
+    <li><strong>{{ key }}</strong>：{{ value }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="charts">
+  <h2>可视化结果</h2>
+  <p class="hint">图表包含标题、坐标轴和数据标签，支持悬浮提示与缩放。</p>
+  {% for c in charts %}
+  <div class="card">
+    <h3>{{ c.title }}</h3>
+    <div id="{{ c.id }}" class="chart-box"></div>
+  </div>
+  {% endfor %}
+</section>
+
+<footer class="footer">
+  <p>数据处理脚本见 <code>docs/hive/data_cleaning.sql</code>，Hive 分析脚本见 <code>docs/hive/*.sql</code>，MySQL 与 Spark 结果见 <code>docs/mysql</code>、<code>docs/outputs</code>。</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/echarts.min.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/chart.js') }}" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var list = {{ charts_mount | tojson }};
+    TaobaoCharts.mountAll(list);
+  });
+</script>
+</body>
+</html>

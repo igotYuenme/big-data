@@ -1,0 +1,5 @@
+﻿table_name,row_count
+users,5000
+products,2000
+orders,15000
+user_behaviors,30000

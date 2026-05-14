@@ -1,0 +1,8 @@
+{
+  "mode": "fallback",
+  "message": "pyspark not installed; exported feature table and RFM labels only",
+  "output_files": [
+    "handoff_check_feature_table.csv",
+    "handoff_check_rfm_labels.csv"
+  ]
+}

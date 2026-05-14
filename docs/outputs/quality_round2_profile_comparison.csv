@@ -1,0 +1,6 @@
+﻿feature_profile,k,silhouette_score,feature_count
+compact_no_engagement_no_member,3,0.35416550827480525,11
+compact_plus_registration,3,0.33831572855695,12
+compact_plus_cancel,3,0.3200121925229414,12
+compact_plus_review_rate,3,0.292253568390209,12
+compact_plus_all_quality,3,0.27180042278186217,14

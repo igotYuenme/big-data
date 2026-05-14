@@ -1,0 +1,2 @@
+class ThemeType:
+    MACARONS = "macarons"

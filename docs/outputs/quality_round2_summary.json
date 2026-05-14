@@ -1,0 +1,10 @@
+{
+  "mode": "pyspark",
+  "comparison_type": "feature_profile",
+  "k": 3,
+  "best_profile": "compact_no_engagement_no_member",
+  "best_silhouette_score": 0.35416550827480525,
+  "output_files": [
+    "quality_round2_profile_comparison.csv"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "mode": "pyspark",
+  "k": 3,
+  "feature_profile": "compact_no_engagement_no_member",
+  "silhouette_score": 0.35416550827480525,
+  "feature_columns": [
+    "recency_days",
+    "order_count",
+    "log_total_spent",
+    "completion_rate",
+    "refund_rate",
+    "avg_review_score",
+    "click_through_rate",
+    "favorite_rate",
+    "cart_rate",
+    "credit_score",
+    "log_account_balance"
+  ],
+  "output_files": [
+    "final_kmeans_cluster_labels.csv",
+    "final_kmeans_cluster_summary.csv",
+    "final_kmeans_rfm_vs_kmeans.csv"
+  ]
+}

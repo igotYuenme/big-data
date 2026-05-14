@@ -1,0 +1,14 @@
+{
+  "mode": "pyspark",
+  "k_values": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "best_k": 3,
+  "best_silhouette_score": 0.2086769574698759,
+  "output_files": [
+    "kmeans_compare_v2_k_comparison.csv"
+  ]
+}

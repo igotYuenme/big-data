@@ -1,0 +1,31 @@
+{
+  "database": "taobao_analysis",
+  "host": "127.0.0.1",
+  "query_count": 4,
+  "outputs": [
+    {
+      "query_index": 2,
+      "rows": 20,
+      "file": "query_2.csv",
+      "sql": "SELECT\n    u.user_id,\n    u.gender,\n    u.city,\n    u.member_level,\n    COUNT(o.order_id) AS order_count,\n    ROUND(SUM(o.actual_payment), 2) AS total_spent,\n    ROUND(AVG(o.actual_payment), 2) AS avg_order_value\nFROM users u\nJOIN orders o ON u.user_id = o.user_id\nGROUP BY u.user_id, u.gender, u.city, u.member_level\nORDER BY total_spent DESC\nLIMIT 20"
+    },
+    {
+      "query_index": 3,
+      "rows": 20,
+      "file": "query_3.csv",
+      "sql": "SELECT\n    p.product_id,\n    p.product_name,\n    p.category,\n    COUNT(DISTINCT o.order_id) AS order_count,\n    ROUND(SUM(o.actual_payment), 2) AS total_revenue,\n    SUM(CASE WHEN b.behavior_type = '浏览' THEN 1 ELSE 0 END) AS browse_count,\n    SUM(CASE WHEN b.behavior_type = '点击' THEN 1 ELSE 0 END) AS click_count,\n    SUM(CASE WHEN b.behavior_type = '收藏' THEN 1 ELSE 0 END) AS favorite_count,\n    SUM(CASE WHEN b.behavior_type = '加购' THEN 1 ELSE 0 END) AS cart_count\nFROM products p\nLEFT JOIN orders o ON p.product_id = o.product_id\nLEFT JOIN user_behaviors b ON p.product_id = b.product_id\nGROUP BY p.product_id, p.product_name, p.category\nORDER BY total_revenue DESC\nLIMIT 20"
+    },
+    {
+      "query_index": 4,
+      "rows": 20,
+      "file": "query_4.csv",
+      "sql": "SELECT\n    u.city,\n    COUNT(DISTINCT u.user_id) AS user_count,\n    COUNT(o.order_id) AS order_count,\n    ROUND(SUM(o.actual_payment), 2) AS total_revenue,\n    ROUND(AVG(o.actual_payment), 2) AS avg_order_value\nFROM users u\nJOIN orders o ON u.user_id = o.user_id\nGROUP BY u.city\nORDER BY total_revenue DESC\nLIMIT 20"
+    },
+    {
+      "query_index": 5,
+      "rows": 20,
+      "file": "query_5.csv",
+      "sql": "SELECT\n    b.user_id,\n    SUM(CASE WHEN b.behavior_type = '浏览' THEN 1 ELSE 0 END) AS browse_count,\n    SUM(CASE WHEN b.behavior_type = '点击' THEN 1 ELSE 0 END) AS click_count,\n    SUM(CASE WHEN b.behavior_type = '收藏' THEN 1 ELSE 0 END) AS favorite_count,\n    SUM(CASE WHEN b.behavior_type = '加购' THEN 1 ELSE 0 END) AS cart_count,\n    COUNT(DISTINCT o.order_id) AS purchase_count,\n    ROUND(SUM(o.actual_payment), 2) AS total_spent\nFROM user_behaviors b\nLEFT JOIN orders o ON b.user_id = o.user_id AND b.product_id = o.product_id\nGROUP BY b.user_id\nORDER BY total_spent DESC, purchase_count DESC\nLIMIT 20"
+    }
+  ]
+}

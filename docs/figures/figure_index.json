@@ -1,0 +1,23 @@
+{
+  "generated_dir": "E:\\大数据\\docs\\figures",
+  "files": [
+    "mysql_table_counts.png",
+    "mysql_top_users_total_spent.png",
+    "mysql_top_products_revenue.png",
+    "mysql_city_total_revenue.png",
+    "mysql_behavior_vs_spent.png",
+    "kmeans_silhouette_comparison.png",
+    "kmeans_feature_ablation.png",
+    "kmeans_cluster_value_profile.png",
+    "rfm_kmeans_heatmap.png",
+    "kmeans_cluster_metric_compare.png",
+    "portrait_high_value_age.png",
+    "portrait_high_value_gender.png",
+    "portrait_high_value_city.png",
+    "portrait_high_value_member.png",
+    "portrait_rfm_high_value_rate.png",
+    "portrait_rfm_churn_by_age.png",
+    "portrait_kmeans_female_share.png",
+    "portrait_kmeans_city_heatmap.png"
+  ]
+}
